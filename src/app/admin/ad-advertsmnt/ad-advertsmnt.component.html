@@ -1,0 +1,40 @@
+<div class="mycol">
+    <div class="pl-3 pt-2 pb-2">
+      <h3 class="pl-3">Advertisement</h3>
+    </div>
+    <hr>
+    <br>
+  
+    <div class="row">
+        <div class="col-4" mdbTableCol *ngFor="let el of elements" >
+      <div  class="add">
+        <mdb-card>
+          <!--Card image-->
+          <h4 mdbTableCol >{{el.id}}</h4>
+          <h4 mdbTableCol >C.Id:{{el.categoryId}}</h4>
+          <h4 mdbTableCol >Item Code:{{el.itemCode}}</h4>
+          <div class="img">
+          <mdb-card-img mdbTableCol src="{{el.photoUrl}}" alt="Card image cap"></mdb-card-img>
+        </div>
+          
+          <mdb-card-body>
+          <mdb-card-title >
+              <h4>{{el.name}}</h4>
+            </mdb-card-title>
+            <h5 mdbTableCol class="p1">Old Prize: {{el.oldPrice}}</h5>
+            <h5 mdbTableCol class="d1">{{el.discount}}</h5>
+            <h5 mdbTableCol class="p2">New Prize: {{el.newPrice}}</h5>
+            <h5 mdbTableCol class="d1">Start Date:{{el.startDate}}</h5>
+            <h5 mdbTableCol class="d2">End Date: {{el.endDate}}</h5>
+        
+            <a href="#" mdbBtn type="button" color="info"  mdbWavesEffect>approve</a>
+            <a href="#" mdbBtn type="button" color="info" mdbWavesEffect>Remove</a>
+            <br>
+            
+          </mdb-card-body>
+          </mdb-card>
+      </div>
+      </div>
+      
+      </div>
+  </div>

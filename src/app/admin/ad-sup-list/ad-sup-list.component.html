@@ -1,0 +1,26 @@
+<div class="mycol">
+  <div class="pl-3 pt-2 pb-2">
+    <h3 class="pl-3">Supplier List</h3>
+  </div>
+  <hr>
+  <br>
+  <table id="example" class="table table-striped" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of elements" class="cell">
+        <th scope="row">{{el.id}}</th>
+        <td>{{el.address}}</td>
+        <td>{{el.email}}</td>
+        <td>{{el.name}}</td>
+        <td>{{el.telephone}}</td>
+        <td>{{el.username}}</td>
+        <td><a href="#" mdbBtn color="primary" size="sm" mdbWavesEffect>Block</a></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

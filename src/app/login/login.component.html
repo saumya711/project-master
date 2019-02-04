@@ -1,0 +1,81 @@
+<!-- Default form login -->
+<div class="form-group row pt-5 b mb-0">
+  <div class="col-md-7">
+    <div class="form-group row pdng">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <h1 class="text-center font-weight-bold">Sample text</h1>
+        <h4 class="pl-4 pr-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere assumenda dolore placeat
+          natus laborum veritatis aspernatur id cum, reiciendis voluptatibus nam excepturi, esse quae a quia illum
+          provident exercitationem maxime?</h4>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="forml blue-grey lighten-5 z-depth-3 zzz">
+      <form class="text-center border border-light" [formGroup]="form" (ngSubmit)="onSubmit(form)">
+        <div class="view">
+          <a href="">
+            <img src="../../assets/pexels-photo-13913802.jpg" class="img-fluid" alt="Responsive image">
+          </a>
+          <div class="mask flex-center">
+            <h1 class="text-black"><strong> Login </strong></h1>
+          </div>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="invalidLogin">
+          <small>Invalid email or password</small>
+        </div>
+
+        <div class="pl-5 pr-5 pb-4 pt-5">
+          <!-- Email -->
+          <input formControlName="email" type="email" id="defaultLoginFormEmail" class="form-control" placeholder="E-mail">
+
+          <div *ngIf="email.touched && email.invalid">
+            <div class="alert alert-danger" *ngIf="email.errors.email">
+              <small>Invalid email</small>
+            </div>
+            <div class="alert alert-danger" *ngIf="email.errors.required">
+              <small>Please enter email</small>
+            </div>
+          </div>
+
+          <!-- Password -->
+          <input formControlName="password" type="password" id="defaultLoginFormPassword" class="form-control mt-4"
+            placeholder="Password">
+
+          <div *ngIf="password.touched && password.invalid">
+            <div class="alert alert-danger" *ngIf="password.errors.required">
+              <small>Please enter password</small>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-around pt-3">
+            <div>
+              <!-- Remember me -->
+              <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
+            </div>
+            <div>
+              <!-- Forgot password -->
+              <a href="">Forgot password?</a>
+            </div>
+          </div>
+
+          <!-- Sign in button -->
+          <button mdbBtn mdbWavesEffect color="blue" block="true" class="my-4" type="submit">Log in</button>
+        </div>
+
+        <!-- Register -->
+
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-1"></div>
+</div>
+
+
+
+<!-- Default form login -->
