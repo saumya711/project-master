@@ -20,6 +20,16 @@ export class AdAdvertsmntComponent implements OnInit {
       console.log(err);
     })
   }
+  onClickapprove(){
+    if(confirm("Are you sure approve this Add?")){
+      alert("succesfully approved")
+    }
+  }
+  onClickremove(){
+    if(confirm("Are you sure remove this Add?")){
+      alert("succesfully removed")
+    }
+  }
   
 
 }

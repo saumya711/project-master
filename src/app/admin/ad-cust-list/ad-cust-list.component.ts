@@ -19,5 +19,10 @@ export class AdCustListComponent implements OnInit {
 
   ngOnInit() {
   }
+  onClickdelete(){
+    if(confirm("Are you sure block this user?")){
+      alert("succesfully blocked")
+    }
+  }
 
 }

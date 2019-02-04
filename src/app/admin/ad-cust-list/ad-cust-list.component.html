@@ -18,7 +18,9 @@
         <td>{{el.name}}</td>
         <td>{{el.telephone}}</td>
         <td>{{el.username}}</td>
-        <td><a href="#" mdbBtn color="primary" size="sm" mdbWavesEffect>Block</a></td>
+        <td>
+          <button type="button" mdbBtn color="primary" size="sm" (click)="onClickdelete()" mdbWavesEffect>Block</button>
+        </td>
 
       </tr>
     </tbody>

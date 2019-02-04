@@ -11,7 +11,6 @@
         <mdb-card>
           <!--Card image-->
           <h4 mdbTableCol >{{el.id}}</h4>
-          <h4 mdbTableCol >C.Id:{{el.categoryId}}</h4>
           <h4 mdbTableCol >Item Code:{{el.itemCode}}</h4>
           <div class="img">
           <mdb-card-img mdbTableCol src="{{el.photoUrl}}" alt="Card image cap"></mdb-card-img>
@@ -22,19 +21,21 @@
               <h4>{{el.name}}</h4>
             </mdb-card-title>
             <h5 mdbTableCol class="p1">Old Prize: {{el.oldPrice}}</h5>
-            <h5 mdbTableCol class="d1">{{el.discount}}</h5>
+            <h5 mdbTableCol class="d1">{{el.discount}}%</h5>
             <h5 mdbTableCol class="p2">New Prize: {{el.newPrice}}</h5>
             <h5 mdbTableCol class="d1">Start Date:{{el.startDate}}</h5>
             <h5 mdbTableCol class="d2">End Date: {{el.endDate}}</h5>
         
-            <a href="#" mdbBtn type="button" color="info"  mdbWavesEffect>approve</a>
-            <a href="#" mdbBtn type="button" color="info" mdbWavesEffect>Remove</a>
+            <a href="#" mdbBtn type="button" (click)="onClickapprove()" size="sm" color="info"  mdbWavesEffect>approve</a>
+            <a href="#" mdbBtn type="button" (click)="onClickremove()" size="sm" color="info" mdbWavesEffect>Remove</a>
             <br>
             
           </mdb-card-body>
           </mdb-card>
+          <br><br>
+      </div> 
       </div>
+     
       </div>
-      
-      </div>
+     
   </div>
