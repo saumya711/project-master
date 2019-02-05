@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-ad-cust-list',
@@ -6,21 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ad-cust-list.component.scss']
 })
 export class AdCustListComponent implements OnInit {
-
-  elements: any = [
-    {id: 1, address: 'mathara', email:'anura@gmail.com', telephone: '0758645987', name: '@mdo', username:'anura'},
-    {id: 2, address: 'kandy', email:'Ravindra@gmail.com', telephone: '0716594012', name: '@fat', username:'ab'},
-    {id: 3, address: 'colombo', email:'Shriyani@gamil.com', telephone: '0783541203', name: '@twitter', username:'cd'}
-  ];
-
-  headElements = ['ID', 'address', 'Name', 'Contact_Number', 'E-mail', 'User name' ];
-
-  constructor() { }
+elements: any 
+   
+constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.getAllUsers().subscribe(data=>{
+      this.elements=data;
+      console.log(data);
+      
+    },
+    err=>{
+      console.log(err);
+    })
   }
+  headElements = ['ID', 'Name', 'Userame', 'Email', 'Telephone', 'Address' ];
+  
   onClickdelete(){
     if(confirm("Are you sure block this user?")){
+      //this.deleteUser(); 
       alert("succesfully blocked")
     }
   }

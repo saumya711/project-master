@@ -12,7 +12,7 @@ export class AdAdvertsmntComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.authService.getAllItems().subscribe(data=>{
+    this.authService.getAllAdvertisments().subscribe(data=>{
       this.elements=data;
       console.log(data);
     },

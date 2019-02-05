@@ -8,7 +8,7 @@
     <!-- Default form contact -->
     <form class="text-center border border-light p-5">
 
-      <p class="h4 mb-4">Add a new category</p>
+      <p class="h4 mb-4">Add new category</p>
 
 
       <div class="form-group row">
@@ -36,7 +36,7 @@
       <div class="form-row mb-4">
         <div class="col">
           <!-- First name -->
-          <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+          <input type="text" [(ngModel)]="newFname.name" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
         </div>
         <div class="col">
           <!-- Last name -->
@@ -46,6 +46,7 @@
 
       <!-- E-mail -->
       <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+      <input type="text" id="defaultRegisterFormAddress" class="form-control mb-4" placeholder="Address">
 
       <!-- Password -->
       <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password"
