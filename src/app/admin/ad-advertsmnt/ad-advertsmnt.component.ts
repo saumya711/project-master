@@ -20,15 +20,21 @@ export class AdAdvertsmntComponent implements OnInit {
       console.log(err);
     })
   }
-  onClickapprove(){
-    if(confirm("Are you sure approve this Add?")){
-      alert("succesfully approved")
-    }
+  onClickapprove(itemId){
+    this.authService.approveItem(itemId).subscribe(
+      res =>console.log(res),
+      err=>console.log(err)
+    )
+    //window.alert("approved add");
+  
+
   }
-  onClickremove(){
-    if(confirm("Are you sure remove this Add?")){
-      alert("succesfully removed")
-    }
+  onClickremove(itemId){
+    this.authService.deleteItem(itemId).subscribe(
+      res=>console.log(res),
+      err=>console.log(err)
+    )
+    //window.location.reload();
   }
   
 

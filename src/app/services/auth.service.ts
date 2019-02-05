@@ -72,8 +72,15 @@ public getAllAdvertisments(): Observable<any>{
 public getAllUsers(): Observable<any>{
   return this.http.get('http://localhost:8080/api/user/all');
 }
- public deleteUser(): Observable<any>{
-   return this.http.delete(`http://localhost:8080/api/user/DeleteItem`);
+ public deleteUser(userId): Observable<any>{
+   return this.http.delete(`http://localhost:8080/api/user/DeleteItem/${userId}`);
+ }
+
+ public deleteItem(itemId){
+   return this.http.delete(`http://localhost:8080/api/item/DeleteItem/${itemId}`)
+ }
+ public approveItem(itemId){
+   return this.http.put('http://localhost:8080/api/item/approveItem',itemId)
  }
 
 }

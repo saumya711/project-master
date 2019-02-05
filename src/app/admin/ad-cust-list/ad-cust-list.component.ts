@@ -7,14 +7,21 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./ad-cust-list.component.scss']
 })
 export class AdCustListComponent implements OnInit {
-elements: any 
+elementsCustomer:any = [];
+  userId: any;
    
 constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.authService.getAllUsers().subscribe(data=>{
-      this.elements=data;
-      console.log(data);
+      for(let i in data){
+        console.log(data[i].userRoll);
+        if(data[i].userRoll === 1){
+
+          console.log(data);
+          this.elementsCustomer.push((data[i]))
+        }
+      }
       
     },
     err=>{
@@ -23,11 +30,18 @@ constructor(private authService: AuthService) { }
   }
   headElements = ['ID', 'Name', 'Userame', 'Email', 'Telephone', 'Address' ];
   
-  onClickdelete(){
+  onClickdelete(userId){
     if(confirm("Are you sure block this user?")){
-      //this.deleteUser(); 
-      alert("succesfully blocked")
+    console.log(userId)
+      this.authService.deleteUser(userId).subscribe(
+        res=>console.log(res),
+        err=>console.log(err),
+      )
+      alert("successfully blocked")
+    }
     }
   }
+  
+  
 
-}
+

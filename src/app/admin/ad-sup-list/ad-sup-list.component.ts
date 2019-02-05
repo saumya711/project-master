@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-ad-sup-list',
@@ -6,22 +7,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ad-sup-list.component.scss']
 })
 export class AdSupListComponent implements OnInit {
+ elementsSupplier:any = [];
 
-  elements: any = [
-    {id: 1, address: 'Rathnapura', email:'akila@gmail.com', telephone: '0758445987', name: '@mdo', username:'akila'},
-    {id: 2, address: 'kandy', email:'Ravindra@gmail.com', telephone: '0716594012', name: '@fat', username:'ab'},
-    {id: 3, address: 'colombo', email:'Shriyani@gamil.com', telephone: '0783541203', name: '@twitter', username:'cd'}
-  ];
-
-  headElements = ['ID', 'address', 'Name', 'Contact_Number', 'E-mail', 'User name' ];
-
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.getAllUsers().subscribe(data=>{
+
+      for(let i in data){
+        console.log(data[i].userRoll);
+        if(data[i].userRoll === 2){
+
+          console.log(data);
+          this.elementsSupplier.push(data[i]);
+        }
+      }
+     // console.log(data,"llllll");
+      
+    },
+    err=>{
+      console.log(err);
+    })
   }
-  onClickdelete(){
+  headElements = ['ID', 'Name', 'Userame', 'Email', 'Telephone', 'Address' ];
+  
+  onClickdelete(userId){
     if(confirm("Are you sure block this user?")){
-      alert("succesfully blocked")
+    console.log(userId)
+      this.authService.deleteUser(userId).subscribe(
+        res=>console.log(res),
+        err=>console.log(err)
+      )
+      alert("successfully blocked")
     }
   }
   

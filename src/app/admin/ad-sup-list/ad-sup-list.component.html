@@ -11,16 +11,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr mdbTableCol *ngFor="let el of elements" class="cell">
+     
+      <tr mdbTableCol *ngFor="let el of elementsSupplier" class="cell">
+ 
         <th scope="row">{{el.id}}</th>
-        <td>{{el.address}}</td>
-        <td>{{el.email}}</td>
         <td>{{el.name}}</td>
-        <td>{{el.telephone}}</td>
         <td>{{el.username}}</td>
-        <td><button type="button" mdbBtn color="primary" size="sm" (click)="onClickdelete()" mdbWavesEffect>Block</button></td>
-
+        <td>{{el.email}}</td>
+        <td>{{el.telephone}}</td>
+        <td>{{el.address}}</td>
+        <td><button type="button" mdbBtn color="primary" size="sm" (click)="onClickdelete(el.id)" mdbWavesEffect>Block</button></td>
+  
       </tr>
+
     </tbody>
   </table>
 </div>
