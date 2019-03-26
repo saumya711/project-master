@@ -33,32 +33,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(form:any) {
     console.log(form.value);
-    this.router.navigate(['admin/advertisement']);
-
-    
-
-    /*this.auth.login(form.value).subscribe(result => {
-       let token = result.json().JWT_Token;
-      let decodeJWT = this.getDecodedAccessToken(token)
-       console.log(decodeJWT);
-       console.log(token);
-       if (token) {
-         if (decodeJWT.user.role == 'Admin') {
-           localStorage.setItem('token', token);
-           this.router.navigate(['admin/home']);
-         }
-         else {
-           this.invalidLogin = true;;
-           this.form.reset();
-           this.router.navigate(['']);
-         }
-       }
-       else {
-         this.invalidLogin = true;
-         this.form.reset();
-         this.router.navigate(['']);
-       }
-     });*/
+    this.auth.login(form.value).subscribe(res => console.log(res))
   }
 
   get email() { return this.form.get('email'); }

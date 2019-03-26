@@ -49,6 +49,16 @@ export class AuthService {
       this.router.navigate(['/home']);
     }*/
 
+    login(data){
+      console.log(data);
+      return this.http.post('http://localhost:8080/api/auth/signin',data)
+    }
+
+    register(data){
+      console.log(data);
+      return this.http.post('http://localhost:8080/api/auth/signup',data)
+    }
+  
     isLoggedIn(): boolean {
       return !!localStorage.getItem('accessToken');
     }
@@ -80,7 +90,7 @@ public getAllUsers(): Observable<any>{
    return this.http.delete(`http://localhost:8080/api/item/DeleteItem/${itemId}`)
  }
  public approveItem(itemId){
-   return this.http.put('http://localhost:8080/api/item/approveItem',itemId)
+   return this.http.put('http://localhost:8080/api/item/approveItem/${itemId}',1)
  }
 
 }

@@ -29,35 +29,46 @@
 
   <div class="container">
     <!-- Default form register -->
-    <form class="text-center border border-light p-5">
+    <form class="text-center border border-light p-5" #loginForm=ngForm (ngSubmit)="submit()">
 
       <p class="h4 mb-4">Register new Admin</p>
+      <p *ngIf="success">{{success}}</p>
+      <div *ngIf="errors">
+        <p *ngFor="let error of errors">{{error.field}} {{error.defaultMessage}}</p>
+      </div>
 
       <div class="form-row mb-4">
         <div class="col">
           <!-- First name -->
-          <input type="text"  id="defaultRegisterFormFirstName" class="form-control" placeholder="Name">
+          <input type="text"  id="defaultRegisterFormFirstName" class="form-control" placeholder="Name" name="name" [(ngModel)]="form.name">
         </div>
         
       </div>
+      <div class="form-row mb-4">
+        <div class="col">
+      <input type="text"  id="defaultRegisterFormFirstName" class="form-control" placeholder="Username" name="username" [(ngModel)]="form.username">
+    </div>
+        
+  </div>
 
       <!-- E-mail -->
-      <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-      <input type="text" id="defaultRegisterFormAddress" class="form-control mb-4" placeholder="Address">
+      <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" name="email" [(ngModel)]="form.email">
+      {{a}}
+      <input type="text" id="defaultRegisterFormAddress" class="form-control mb-4" placeholder="Address" name="address" [(ngModel)]="form.address">
 
       <!-- Password -->
       <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password"
-        aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        aria-describedby="defaultRegisterFormPasswordHelpBlock" name="password" [(ngModel)]="form.password">
       <small  class="form-text text-muted mb-4">
         At least 8 characters and 1 digit
       </small>
 
       <!-- Phone number -->
       <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number"
-        aria-describedby="defaultRegisterFormPhoneHelpBlock">
+        aria-describedby="defaultRegisterFormPhoneHelpBlock" name="telephone" [(ngModel)]="form.telephone">
     
-      <button mdbBtn color="info" block="true" class="my-4 col-sm-3" type="submit">Add</button>
-
+      <input type="submit" mdbBtn color="info" block="true" class="my-4 col-sm-3" type="submit" value="Add">
+    
 
     </form>
     <!-- Default form register -->

@@ -30,12 +30,15 @@ export class AdAdvertsmntComponent implements OnInit {
 
   }
   onClickremove(itemId){
+    if(confirm("Are you sure remove this Add?")){
     this.authService.deleteItem(itemId).subscribe(
       res=>console.log(res),
       err=>console.log(err)
     )
+    alert("successfully removed")
     //window.location.reload();
   }
   
 
+}
 }

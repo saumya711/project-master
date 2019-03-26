@@ -8,7 +8,7 @@
     <div class="row" >
         <div class="col-4" mdbTableCol *ngFor="let el of elements" >
     
-        <mdb-card>
+        <mdb-card *ngIf="!(el.accept)">
           <!--Card image-->
           <h4 mdbTableCol style="font-family: Arial;font-size: 20px; font-weight: 600; padding: 10px 10px 0 10px;" >{{el.id}}. &ensp;&ensp;  Item Code:{{el.itemCode}}</h4>
           
@@ -23,8 +23,8 @@
             <h5 mdbTableCol class="p1" style="font-family: Arial;font-size: 15px; font-weight: 800; padding:0 0 0 0; color:red;" >    Old Prize: <del  >{{el.oldPrice}}</del></h5>
             <h5 mdbTableCol class="d1" style="font-family: Arial;font-size: 15px; font-weight: 900; padding: 0 0 0 0;" >Discount:{{el.discount}}%</h5>
             <h5 mdbTableCol class="p2" style="font-family: Arial;font-size: 15px; font-weight: 800; padding: 0 0 0 0;color:blue;"  >New Prize: {{el.newPrice}}</h5>
-            <h5 mdbTableCol class="d1" style="font-family: Arial;font-size: 15px; font-weight: 600; padding: 0 0 0 0;" >{{el.startDate}} To</h5>
-            <h5 mdbTableCol class="d2" style="font-family: Arial;font-size: 15px; font-weight: 600; padding: 0 0 0 0;" > {{el.endDate}}</h5>
+            <h5 mdbTableCol class="d1" style="font-family: Arial;font-size: 15px; font-weight: 600; padding: 0 0 0 0;" >{{el.startDate | date}} To</h5>
+            <h5 mdbTableCol class="d2" style="font-family: Arial;font-size: 15px; font-weight: 600; padding: 0 0 0 0;" > {{el.endDate | date}}</h5>
         
             <a  mdbBtn type="button" (click)="onClickapprove(el.id)" size="sm" color="info"  mdbWavesEffect>approve</a>
             <a  mdbBtn type="button" (click)="onClickremove(el.id)" size="sm" color="info" mdbWavesEffect>Remove</a>
